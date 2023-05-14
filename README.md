@@ -1,4 +1,4 @@
-<h1>Portfolio desenvolvido com React Native</h1>
+<h1>Todo List desenvolvido com React Native</h1>
 <h4>🚀 Projeto Todo List </h4>
 
 <h2>🚧 Status do projeto</h2>
