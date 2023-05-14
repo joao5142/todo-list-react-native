@@ -23,11 +23,11 @@
 </div>
 
 <h2>🖼️ Demonstração da aplicação</h2>
-<img margin-bottom="20px" src="src/assets/images/readme/Readme1.png">
+<img margin-bottom="20px" src="src/assets/images/readme/readme1.png">
 <hr/>
-<img margin-bottom="20px" src="src/assets/images/readme/Readme2.png">
+<img margin-bottom="20px" src="src/assets/images/readme/readme2.png">
 <hr/>
-<img margin-bottom="20px" src="src/assets/images/readme/Readme3.png">
+<img margin-bottom="20px" src="src/assets/images/readme/readme3.png">
 
 <h2>🧑🏻‍ Autor</h2>
 <p>Feito por João paulo</p>
