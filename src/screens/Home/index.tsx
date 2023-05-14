@@ -46,7 +46,7 @@ export function Home() {
     if (!isTodoTextValid()) {
       Alert.alert(
         "Informe um texto",
-        "Adicione algum texto para inserir o todo."
+        "Adicione algum texto para inserir a tarefa."
       );
       return;
     }

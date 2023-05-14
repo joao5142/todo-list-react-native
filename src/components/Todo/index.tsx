@@ -20,7 +20,7 @@ export function Todo({ todo, onRemoveTodo, onCheckboxValueChange }: Props) {
   const [isButtonRemovePressed, setIsButtonRemovePressed] = useState(false);
 
   function handleRemoveTodo() {
-    Alert.alert("Remover Todo", "Deseja Remover o Todo ?", [
+    Alert.alert("Remover Tarefa", "Deseja Remover a Tarefa ?", [
       {
         text: "Sim",
         onPress: () => {
