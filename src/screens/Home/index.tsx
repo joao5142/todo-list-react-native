@@ -20,6 +20,8 @@ import { Todo } from "../../components/Todo";
 
 import { styles } from "./styles";
 
+import { colors } from "../../styles";
+
 export function Home() {
   const [todos, setTodos] = useState<Array<TodoType>>([]);
   const [quantityCompletedTodo, setQuantityCompletedTodo] = useState(0);
@@ -69,7 +71,7 @@ export function Home() {
       <View style={styles.content}>
         <View style={styles.textFieldContainer}>
           <TextInput
-            placeholderTextColor="#808080"
+            placeholderTextColor={colors.gray300}
             placeholder="Adicione uma nova tarefa"
             style={styles.textfield}
             value={todoText}
@@ -77,7 +79,7 @@ export function Home() {
           />
           <TouchableHighlight
             onPress={handleAddTodo}
-            underlayColor="#4EA8DE"
+            underlayColor={colors.blue}
             style={styles.buttonAdd}
           >
             <AntDesign name="pluscircleo" size={24} color="white" />
