@@ -18,6 +18,8 @@ import TodoType from "../../types/Todo";
 
 import { Todo } from "../../components/Todo";
 
+import uuid from "react-native-uuid";
+
 import { styles } from "./styles";
 
 import { colors } from "../../styles";
@@ -28,14 +30,23 @@ export function Home() {
   const [todoText, setTodoText] = useState("");
 
   useEffect(() => {
-    handleQuantityCompletedTodos();
+    onChangeTodoValue();
   }, [todos]);
 
-  function handleQuantityCompletedTodos() {
-    console.log(todos);
+  function handleChangeTodoCompletedValue(todoToChange) {
+    const newArrTodos = todos.map((todo) => {
+      if (todo.id === todoToChange.id) {
+        return { ...todo, completed: !todo.completed };
+      }
+      return { ...todo };
+    });
+    setTodos(newArrTodos);
+  }
+
+  function onChangeTodoValue() {
     let lengthOfCompletedTodos = todos.filter((todo) => todo.completed).length;
-    console.log(lengthOfCompletedTodos);
-    setQuantityCompletedTodo(() => lengthOfCompletedTodos);
+
+    setQuantityCompletedTodo(lengthOfCompletedTodos);
   }
 
   function isTodoTextValid() {
@@ -51,8 +62,8 @@ export function Home() {
       return;
     }
 
-    let todo = {
-      id: (todos[todos.length - 1]?.id ?? 0) + 1,
+    let todo: TodoType = {
+      id: uuid.v4(),
       description: todoText,
       completed: false,
     };
@@ -110,10 +121,12 @@ export function Home() {
               </Text>
             </View>
           }
-          renderItem={({ item, index }) => (
+          renderItem={({ item }) => (
             <Todo
               onRemoveTodo={() => handleRemoveTodo(item)}
-              onCheckboxValueChange={() => handleQuantityCompletedTodos()}
+              onCheckboxValueChange={(todo) =>
+                handleChangeTodoCompletedValue(todo)
+              }
               todo={item}
             />
           )}

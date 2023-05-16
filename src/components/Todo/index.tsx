@@ -16,7 +16,6 @@ type Props = {
 };
 
 export function Todo({ todo, onRemoveTodo, onCheckboxValueChange }: Props) {
-  const [isComplete, setIsComplete] = useState(todo.completed);
   const [isButtonRemovePressed, setIsButtonRemovePressed] = useState(false);
 
   function handleRemoveTodo() {
@@ -33,25 +32,21 @@ export function Todo({ todo, onRemoveTodo, onCheckboxValueChange }: Props) {
       },
     ]);
   }
-  useEffect(() => {
-    todo.completed = isComplete;
-    onCheckboxValueChange();
-  }, [isComplete]);
 
   return (
     <View style={styles.todo}>
       <Checkbox
         style={styles.todoCheckbox}
-        value={isComplete}
-        onValueChange={(value) => {
-          setIsComplete(value);
+        value={todo.completed}
+        onValueChange={() => {
+          onCheckboxValueChange(todo);
         }}
-        color={isComplete ? "#4630EB" : undefined}
+        color={todo.completed ? "#4630EB" : undefined}
       />
       <Text
         style={[
           styles.todoDescription,
-          isComplete ? styles.todoDescriptionCompleted : null,
+          todo.completed ? styles.todoDescriptionCompleted : null,
         ]}
       >
         {" "}
